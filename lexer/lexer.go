@@ -48,6 +48,8 @@ func (l *Lexer) NextToken() token.Token {
 		tok = newToken(token.RPARA, l.ch)
 	case '+':
 		tok = newToken(token.ADD, l.ch)
+	case ';':
+		tok = newToken(token.SEMICOLON, l.ch)
 	case '{':
 		tok = newToken(token.LBRAC, l.ch)
 	case '}':

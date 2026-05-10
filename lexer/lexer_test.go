@@ -17,6 +17,7 @@ func TestNextToken(t *testing.T) {
 		{token.LBRAC, "{"},
 		{token.RBRAC, "}"},
 		{token.LPARA, "("},
+		{token.RPARA, ")"},
 		{token.COMMA, ","},
 		{token.SEMICOLON, ";"},
 		{token.EOF, ""},
