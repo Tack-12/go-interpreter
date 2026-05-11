@@ -17,8 +17,12 @@ const (
 	INT   = "INT"   // INTEGERS
 
 	//Operators:
-	ASSIGN = "="
-	ADD    = "+"
+	ASSIGN   = "="
+	ADD      = "+"
+	SUBTRACT = "-"
+	STAR     = "*"
+	FORSLASH = "/"
+	EXCLA    = "!"
 
 	//Delimeters:
 	COMMA     = ","
@@ -29,6 +33,9 @@ const (
 
 	LBRAC = "{"
 	RBRAC = "}"
+
+	LSIGN = "<"
+	RSIGN = ">"
 
 	//KEYWORDS:
 	FUNCTION = "FUNCTION"
