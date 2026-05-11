@@ -37,6 +37,9 @@ const (
 	LSIGN = "<"
 	RSIGN = ">"
 
+	EQ     = "=="
+	NOT_EQ = "!="
+
 	//KEYWORDS:
 	FUNCTION = "FUNCTION"
 	LET      = "LET"
