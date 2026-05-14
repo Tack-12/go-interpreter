@@ -67,7 +67,9 @@ func New(l *lexer.Lexer) *Parser {
 	p.registerInfix(token.NOT_EQ, p.parseInfixExpression)
 	p.registerInfix(token.LSIGN, p.parseInfixExpression)
 	p.registerInfix(token.RSIGN, p.parseInfixExpression)
+
 	//Gets both the curr and next tokens
+
 	p.nextToken()
 	p.nextToken()
 
@@ -169,7 +171,7 @@ func (p *Parser) parseExpression(precedence int) ast.Expression {
 	}
 	leftExp := prefix()
 
-	if !p.peekTokenIs(token.SEMICOLON) && precedence < p.peekPrecedence() {
+	for !p.peekTokenIs(token.SEMICOLON) && precedence < p.peekPrecedence() {
 		infix := p.infixParseFns[p.peekToken.Type]
 
 		if infix == nil {
