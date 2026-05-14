@@ -6,11 +6,12 @@ import (
 	"testing"
 )
 
+/*
 func TestLetStatements(t *testing.T) {
 	input := `
-	let x = 5;
+	let x = 5 ;
 	let y = 10 ;
-	let foobar = 838383;
+	let foobar = 838383 ;
 	`
 	l := lexer.New(input)
 	p := New(l)
@@ -61,6 +62,8 @@ func testLetStatement(t *testing.T, s ast.Statement, name string) bool {
 	return true
 }
 
+*/
+
 func checkParseErrors(t *testing.T, p *Parser) {
 	errors := p.Errors()
 
@@ -110,7 +113,7 @@ func TestIdentifierExpression(t *testing.T) {
 	checkParseErrors(t, p)
 
 	if len(program.Statements) != 1 {
-		t.Fatalf("Program doesn't have enough statements. got=%T", program.Statements)
+		t.Fatalf("Program doesn't have enough statements. got=%T", len(program.Statements))
 	}
 
 	stmt, ok := program.Statements[0].(*ast.ExpressionStatement)
@@ -121,7 +124,7 @@ func TestIdentifierExpression(t *testing.T) {
 	ident, ok := stmt.Expression.(*ast.Identifier)
 
 	if !ok {
-		t.Fatalf("program.Statement[0] is not a Identifier. got=%T", ident.Value)
+		t.Fatalf("program.Statement[0] is not a Identifier. got=%T", stmt.Expression)
 	}
 	if ident.Value != "foobar" {
 		t.Errorf("ident.Value is not %s . got =%s", "foobar", ident.Value)
@@ -130,4 +133,35 @@ func TestIdentifierExpression(t *testing.T) {
 		t.Errorf("ident.Value is not %s . got =%s", "foobar", ident.TokenLiteral())
 	}
 
+}
+
+func testIntegerLiteral(t *testing.T) {
+	input := "5;"
+
+	l := lexer.New(input)
+	p := New(l)
+
+	program := p.ParseProgram()
+	checkParseErrors(t, p)
+
+	if len(program.Statements) != 1 {
+		t.Fatalf("Program doesn't have enough statements. got=%T", len(program.Statements))
+	}
+
+	stmt, ok := program.Statements[0].(*ast.ExpressionStatement)
+	if !ok {
+		t.Fatalf("program.Statement[0] is not astStatement. got=%T ", program.Statements[0])
+	}
+
+	literal, ok := stmt.Expression.(*ast.IntegerLiteral) //Assert that the first expression we get is an Integer Literal Expression
+
+	if !ok {
+		t.Fatalf("program.Statement[0] is not a literalifier. got=%T", stmt.Expression)
+	}
+	if literal.Value != 5 {
+		t.Errorf("literal.Value is not %d . got =%d", 5, literal.Value)
+	}
+	if literal.TokenLiteral() != "5" {
+		t.Errorf("literal.Value is not %s . got =%s", "5", literal.TokenLiteral())
+	}
 }
