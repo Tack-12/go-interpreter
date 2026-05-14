@@ -12,3 +12,4 @@ has been one of my favourite language alongside TypeScript. It has been a steep 
 
 1. The implementation of basic tokenization is completed with being able to tokenize single char and double characters.
 2. Basic REPL has been implemented for testing the tokenizer alongside the official lexer testing.
+3. Parsers functionality implemented so far for LET , RETURN , EXPRESSIONS & prefix-operators.
