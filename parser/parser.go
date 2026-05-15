@@ -55,15 +55,15 @@ func New(l *lexer.Lexer) *Parser {
 	p.prefixParseFns = make(map[token.TokenType]prefixParseFn)
 	p.registerPrefix(token.IDENT, p.parseIdentifier)
 	p.registerPrefix(token.INT, p.parseIntegerLiteral)
+	p.registerPrefix(token.FUNCTION, p.parseFunctionLiteral)
+
 	p.registerPrefix(token.EXCLA, p.parsePrefixExpression)
 	p.registerPrefix(token.SUBTRACT, p.parsePrefixExpression)
+	p.registerPrefix(token.LPARA, p.parseGroupedExpression)
+	p.registerPrefix(token.IF, p.parseIfExpression)
 
 	p.registerPrefix(token.TRUE, p.parseBoolean)
 	p.registerPrefix(token.FALSE, p.parseBoolean)
-
-	p.registerPrefix(token.LPARA, p.parseGroupedExpression)
-
-	p.registerPrefix(token.IF, p.parseIfExpression)
 
 	p.infixParseFns = make(map[token.TokenType]infixParseFn)
 	p.registerInfix(token.ADD, p.parseInfixExpression)
@@ -306,6 +306,55 @@ func (p *Parser) parseBlockStatement() *ast.BlockStatement {
 	}
 
 	return block
+}
+
+func (p *Parser) parseFunctionLiteral() ast.Expression {
+	lit := &ast.FunctionLiteral{Token: p.currToken}
+
+	if !p.expectPeek(token.LPARA) {
+		return nil
+	}
+
+	lit.Parameters = p.parseFunctionParameters()
+
+	if !p.expectPeek(token.LBRAC) {
+		return nil
+	}
+
+	lit.Body = p.parseBlockStatement()
+
+	return lit
+}
+
+func (p *Parser) parseFunctionParameters() []*ast.Identifier {
+
+	identifiers := []*ast.Identifier{}
+
+	if p.peekTokenIs(token.RPARA) {
+		p.nextToken()
+		return identifiers
+	}
+
+	p.nextToken()
+
+	ident := &ast.Identifier{Token: p.currToken, Value: p.currToken.Literal}
+	identifiers = append(identifiers, ident)
+
+	for p.peekTokenIs(token.COMMA) {
+
+		p.nextToken()
+		p.nextToken()
+
+		ident := &ast.Identifier{Token: p.currToken, Value: p.currToken.Literal}
+		identifiers = append(identifiers, ident)
+	}
+
+	if !p.expectPeek(token.RPARA) {
+		return nil
+	}
+
+	return identifiers
+
 }
 
 //Helper functions:
