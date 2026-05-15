@@ -1,15 +1,17 @@
-# Go-interpreter
+# Go Interpreter
 
-A interpreter written in Golang for the programming language Monkey.
+An interpreter written in Golang for the programming language Monkey.
 
-## Why an interpreter ?
+## Why an Interpreter?
 
-Why not ? I have always loved the idea of building something fun and learning along the way and the thought of building something this big had always carried a
-fear in me so I decided why not take the plung and explore the land of desiging complex things and did it with a language that I had recently learned for CLI tools and honestly,
-has been one of my favourite language alongside TypeScript. It has been a steep curve of learning but the book "Writing an Interpreter in GO" by Thorsten Ball has been a great motivater.
+Why not?
 
-## So Far
+I have always loved the idea of building something fun while learning along the way. The thought of building something this complex used to intimidate me, so I decided to take the plunge and explore the world of designing more advanced systems.
 
-1. The implementation of basic tokenization is completed with being able to tokenize single char and double characters.
-2. Basic REPL has been implemented for testing the tokenizer alongside the official lexer testing.
-3. Parsers functionality implemented so far for LET , RETURN , EXPRESSIONS & prefix-operators.
+I chose to do it in Go, a language I originally learned for building CLI tools and one that has quickly become one of my favorites alongside TypeScript. The learning curve has been steep, but the book _Writing an Interpreter in Go_ by Thorsten Ball has been an incredible motivator and learning resource throughout the journey.
+
+## Progress So Far
+
+1. Implemented the basic tokenizer/lexer with support for both single-character and multi-character tokens.
+2. Built a basic REPL for testing the tokenizer alongside the official lexer tests.
+3. Implemented the parser, which is now functional and integrated with the REPL.
