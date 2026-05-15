@@ -145,6 +145,53 @@ func (b *Boolean) String() string {
 	return b.Token.Literal
 }
 
+type IfExpression struct {
+	Token        token.Token
+	Condition    Expression
+	Consequences *BlockStatement
+	Alternative  *BlockStatement
+}
+
+func (ife *IfExpression) expressionNode() {}
+func (ife *IfExpression) TokenLiteral() string {
+	return ife.Token.Literal
+}
+func (ife *IfExpression) String() string {
+	var out bytes.Buffer
+
+	out.WriteString("if")
+	out.WriteString(ife.Condition.String())
+	out.WriteString(" ")
+	out.WriteString(ife.Consequences.String())
+
+	if ife.Alternative != nil {
+		out.WriteString("else")
+		out.WriteString(ife.Alternative.String())
+
+	}
+
+	return out.String()
+}
+
+type BlockStatement struct {
+	Token      token.Token
+	Statements []Statement
+}
+
+func (bs *BlockStatement) expressionNode() {}
+func (bs *BlockStatement) TokenLiteral() string {
+	return bs.Token.Literal
+}
+func (bs *BlockStatement) String() string {
+	var out bytes.Buffer
+
+	for _, s := range bs.Statements {
+		out.WriteString(s.String())
+
+	}
+	return out.String()
+}
+
 //String Method to print out the AST Node for debugging
 
 func (p *Program) String() string {
