@@ -13,8 +13,9 @@ const (
 	EOF     = "EOF"     //End of File
 
 	//Identifiers + Literals:
-	IDENT = "IDENT" //Represents the identifiers in the language: (variable names)
-	INT   = "INT"   // INTEGERS
+	IDENT  = "IDENT" //Represents the identifiers in the language: (variable names)
+	INT    = "INT"   // INTEGERS
+	STRING = "STRING"
 
 	//Operators:
 	ASSIGN   = "="
