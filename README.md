@@ -1,17 +1,168 @@
-# Go Interpreter
+# Monkey Interpreter - in GoLang
 
-An interpreter written in Golang for the programming language Monkey.
+> An interpreter for the Monkey programming language written in Go.
 
-## Why an Interpreter?
+![Go](https://img.shields.io/badge/Go-1.22+-00ADD8?style=for-the-badge&logo=go)
 
-Why not?
 
-I have always loved the idea of building something fun while learning along the way. The thought of building something this complex used to intimidate me, so I decided to take the plunge and explore the world of designing more advanced systems.
+---
 
-I chose to do it in Go, a language I originally learned for building CLI tools and one that has quickly become one of my favorites alongside TypeScript. The learning curve has been steep, but the book _Writing an Interpreter in Go_ by Thorsten Ball has been an incredible motivator and learning resource throughout the journey.
+# About
 
-## Progress So Far
+This project is a tree-walking interpreter for the Monkey programming language, built entirely in Go.
 
-1. Implemented the basic tokenizer/lexer with support for both single-character and multi-character tokens.
-2. Built a basic REPL for testing the tokenizer alongside the official lexer tests.
-3. Implemented the parser, which is now functional and integrated with the REPL.
+What originally started as curiosity quickly became one of the most rewarding learning experiences I’ve had as a developer. Building an interpreter always felt like one of those impossibly smart people project ,the one thing that was out of my leauge.
+So naturally, I decided to never try to even go this route until I was reccomended a god sent book by one of my favourite youtubers ( he worked at netflix btw / also uses neovim btw).
+
+
+And Drum Rollll ..... The incredible book is:
+
+**Writing an Interpreter in Go** by Thorsten Ball
+
+This book has been one of the most fun and technical learning resources I’ve ever used.
+
+---
+
+
+## Lexer / Tokenizer
+
+- Single-character token support
+- Multi-character token support
+- Identifier parsing
+- Integer parsing
+- Keyword recognition
+- Illegal token detection
+
+---
+
+## Parser
+
+- Pratt parser implementation
+- Abstract Syntax Tree (AST) generation
+- Operator precedence parsing
+- Prefix expressions
+- Infix expressions
+- Grouped expressions
+- Conditional parsing
+- Function literal parsing
+- Call expression parsing
+
+---
+
+## REPL
+
+- Interactive command-line REPL
+- Live parsing & evaluation
+- Error reporting
+- Fast testing workflow
+
+---
+
+## Evaluator / Interpreter
+
+- Integer evaluation
+- Boolean evaluation
+- Prefix operators
+- Infix operators
+- Conditional execution
+- Return statements
+- Variable bindings
+- Function objects
+- Closures
+- Lexical scoping
+- Environment handling
+
+---
+
+# Not Yet Implemented
+
+- Type system
+- Built-in functions
+- Arrays & hash maps
+- Standard library
+- Better parser recovery
+
+
+---
+
+# Project Structure
+
+```bash
+.
+├── ast/          # AST node definitions
+├── evaluator/    # Runtime evaluator
+├── lexer/        # Tokenizer implementation
+├── object/       # Runtime object system
+├── parser/       # Pratt parser
+├── repl/         # Interactive REPL
+├── token/        # Token definitions
+└── main.go
+```
+
+---
+
+# Getting Started
+
+## Clone the Repository
+
+```bash
+git clone https://github.com/Tack-12/go-interpreter.git
+cd go-interpreter
+```
+
+---
+
+## Run the Interpreter
+
+```bash
+go run main.go
+```
+
+---
+
+# Example
+
+```monkey
+let add = fn(a, b) {
+    a + b;
+};
+
+add(5, 10);
+```
+
+Output:
+
+```bash
+15
+```
+
+---
+
+# Progress
+
+- [x] Lexer
+- [x] Parser
+- [x] AST generation
+- [x] REPL
+- [x] Evaluator
+- [x] Functions & closures
+- [x] Lexical environments
+- [ ] Type system
+- [ ] Built-in functions
+- [ ] Extending the full Interpreter Experience
+
+---
+
+# Example
+
+```monkey
+let multiply = fn(a, b) {
+    a * b;
+};
+
+multiply(6, 7);
+```
+
+```bash
+42
+```
