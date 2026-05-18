@@ -4,7 +4,6 @@
 
 ![Go](https://img.shields.io/badge/Go-1.22+-00ADD8?style=for-the-badge&logo=go)
 
-
 ---
 
 # About
@@ -14,7 +13,6 @@ This project is a tree-walking interpreter for the Monkey programming language, 
 What originally started as curiosity quickly became one of the most rewarding learning experiences I’ve had as a developer. Building an interpreter always felt like one of those impossibly smart people project ,the one thing that was out of my leauge.
 So naturally, I decided to never try to even go this route until I was reccomended a god sent book by one of my favourite youtubers ( he worked at netflix btw / also uses neovim btw).
 
-
 And Drum Rollll ..... The incredible book is:
 
 **Writing an Interpreter in Go** by Thorsten Ball
@@ -22,7 +20,6 @@ And Drum Rollll ..... The incredible book is:
 This book has been one of the most fun and technical learning resources I’ve ever used.
 
 ---
-
 
 ## Lexer / Tokenizer
 
@@ -81,7 +78,6 @@ This book has been one of the most fun and technical learning resources I’ve e
 - Arrays & hash maps
 - Standard library
 - Better parser recovery
-
 
 ---
 
@@ -147,9 +143,9 @@ Output:
 - [x] Evaluator
 - [x] Functions & closures
 - [x] Lexical environments
-- [ ] Type system
-- [ ] Built-in functions
-- [ ] Extending the full Interpreter Experience
+- [x] Type system
+- [x] Built-in functions
+- [x] Extending the full Programming Language Experience
 
 ---
 
