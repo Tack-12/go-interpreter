@@ -24,6 +24,7 @@ const (
 	STAR     = "*"
 	FORSLASH = "/"
 	EXCLA    = "!"
+	COLON    = ":"
 
 	//Delimeters:
 	COMMA     = ","
