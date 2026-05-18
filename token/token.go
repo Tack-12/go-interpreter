@@ -41,6 +41,9 @@ const (
 	EQ     = "=="
 	NOT_EQ = "!="
 
+	LBOX = "["
+	RBOX = "]"
+
 	//KEYWORDS:
 	FUNCTION = "FUNCTION"
 	LET      = "LET"
