@@ -71,15 +71,6 @@ This book has been one of the most fun and technical learning resources I’ve e
 
 ---
 
-# Not Yet Implemented
-
-- Type system
-- Built-in functions
-- Arrays & hash maps
-- Standard library
-- Better parser recovery
-
----
 
 # Project Structure
 
